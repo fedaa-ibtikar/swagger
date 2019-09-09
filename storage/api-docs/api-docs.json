@@ -1,0 +1,93 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Laravel6",
+        "version": "0.1"
+    },
+    "paths": {
+        "/api/posts": {
+            "get": {
+                "tags": [
+                    "posts"
+                ],
+                "summary": "Get list of posts",
+                "description": "Returns list of posts",
+                "operationId": "getListOfPosts",
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key_security_example": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "posts"
+                ],
+                "summary": "Save Post To Database",
+                "description": "Save Post",
+                "operationId": "storePost",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "brief": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    },
+                    "400": {
+                        "description": "Bad request"
+                    }
+                },
+                "security": [
+                    {
+                        "api_key_security_example": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Post": {
+                "title": "Post Model",
+                "description": "Post Model",
+                "required": [
+                    "title",
+                    "brief"
+                ],
+                "properties": {
+                    "title": {
+                        "description": "title of post bla bla",
+                        "type": "string"
+                    },
+                    "brief": {
+                        "description": "brief of post bla bla",
+                        "type": "text"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}
